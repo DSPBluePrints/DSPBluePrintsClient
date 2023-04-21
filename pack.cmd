@@ -4,7 +4,7 @@ set GIT=%~dp0MinGit\cmd\git.exe
 set RAR=C:\Program Files\WinRAR\Rar.exe
 
 for %%f in ("%~dp0git_bundle\*.bundle1") do (
-ren "%%f" "%%~nf.bundle"
+del "%%f"
 )
 for /d %%r in ("%~dp0git_repositories\*") do (
 cd "%%r"
