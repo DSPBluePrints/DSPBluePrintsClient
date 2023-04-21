@@ -1,5 +1,5 @@
 MinGit/
-
+DSPBluePrintsClient/
 git_bundle/
 git_repositories/
 
@@ -9,5 +9,7 @@ git_repositories/
 *.zip
 *.rar
 *.7z
+
+*.exe
 
 *.log
