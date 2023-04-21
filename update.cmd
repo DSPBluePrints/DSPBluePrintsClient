@@ -35,7 +35,6 @@ echo Warning: %date% %time% Git no found>>"%LOG_PATH%"
 )
 
 ::git config
-"%GIT%" config core.longpaths true
 set GIT_SSL_NO_VERIFY=true
 
 ::init client
