@@ -1,0 +1,13 @@
+MinGit/
+
+git_bundle/
+git_repositories/
+
+*.bundle
+*.bundle1
+
+*.zip
+*.rar
+*.7z
+
+*.log
