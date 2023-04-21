@@ -15,11 +15,6 @@ echo 错误：无法找到Blueprint/，请检查此包是否安装到了正确�
 echo Error: %date% %time% not exist "..\Blueprint">>"%LOG_PATH%"
 goto error
 )
-if not exist ".\DSPBluePrintsClient" (
-echo 错误：无法找到DSPBluePrintsClient/，可能此更新程序已损坏
-echo Error: %date% %time% not exist ".\DSPBluePrintsClient">>"%LOG_PATH%"
-goto error
-)
 if exist "..\Blueprint\FactoryBluePrints\MinGit" (
 echo 错误：已存在FactoryBluePrints/，命名冲突。如果您正在使用旧版蓝图仓库，请先删除旧版
 echo Error: %date% %time% exist "..\Blueprint\FactoryBluePrints\MinGit">>"%LOG_PATH%"
