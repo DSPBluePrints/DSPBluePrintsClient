@@ -47,8 +47,8 @@ set GIT_SSL_NO_VERIFY=true
 if not exist "DSPBluePrintsClient" (
 "%GIT%" clone https://github.com/DSPBluePrints/DSPBluePrintsClient.git
 if %errorlevel% NEQ 0 (
-echo 错误：更新获取失败，这通常是因为网络问题（GFW）。请重试，或者开加速器再更新。
-echo Error: %date% %time% git pull error>>"%LOG_PATH%"
+echo 错误：DSPBluePrintsClient下载失败，这通常是因为网络问题（GFW）。请重试，或者开加速器再更新。
+echo Error: %date% %time% "%GIT%" clone https://github.com/DSPBluePrints/DSPBluePrintsClient.git>>"%LOG_PATH%"
 goto error
 )
 )
@@ -56,14 +56,14 @@ goto error
 ::update client
 cd DSPBluePrintsClient
 if not exist ".git" (
-echo 错误：无法找到.git/，请检查此储存库是否损坏
-echo Error: %date% %time% Could not find .git/>>"%LOG_PATH%"
+echo 错误：无法找到.git/，请检查DSPBluePrintsClient是否损坏
+echo Error: %date% %time% DSPBluePrintsClient not exist ".git">>"%LOG_PATH%"
 goto error
 )
 "%GIT%" pull origin main
 if %errorlevel% NEQ 0 (
-echo 错误：更新获取失败，这通常是因为网络问题（GFW）。请重试，或者开加速器再更新。
-echo Error: %date% %time% git pull error>>"%LOG_PATH%"
+echo 错误：DSPBluePrintsClient更新失败，这通常是因为网络问题（GFW）。请重试，或者开加速器再更新。
+echo Error: %date% %time% DSPBluePrintsClient "%GIT%" pull origin main>>"%LOG_PATH%"
 goto error
 )
 cd %~dp0
@@ -83,7 +83,7 @@ cd "%~dp0"
 cd "..\Blueprint"
 mklink /d %%~nf "%~dp0git_repositories\%%~nf"
 if not exist "%%~nf" (
-echo 警告：软链接失败，但安装将会继续。请在安装结束后，右键update.cmd，以管理员身份执行
+echo 警告：%%~nf软链接失败，但安装将会继续。请在安装结束后，右键update.cmd，以管理员身份执行
 echo Warning: %date% %time% mklink error>>"%LOG_PATH%"
 ) else (
 ren "%%f" "%%~nf.bundle1"
@@ -96,14 +96,14 @@ for /d %%r in ("%~dp0git_repositories\*") do (
 cd "%%r"
 if exist ".gitignore" (
 if not exist ".git" (
-echo 错误：无法找到.git/，请检查此储存库是否损坏
-echo Error: %date% %time% Could not find .git/>>"%LOG_PATH%"
+echo 错误：无法找到.git/，请检查%%~nr是否损坏
+echo Error: %date% %time% "%%r" not exist ".git">>"%LOG_PATH%"
 goto error
 )
 "%GIT%" pull origin main
 if %errorlevel% NEQ 0 (
-echo 错误：更新获取失败，这通常是因为网络问题（GFW）。请重试，或者开加速器再更新。
-echo Error: %date% %time% git pull error>>"%LOG_PATH%"
+echo 错误：%%~nr更新失败，这通常是因为网络问题（GFW）。请重试，或者开加速器再更新。
+echo Error: %date% %time% "%%r" "%GIT%" pull origin main>>"%LOG_PATH%"
 goto error
 )
 )
