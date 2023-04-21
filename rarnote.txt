@@ -1,0 +1,3 @@
+Path=C:\Users\%USERNAME%\Documents\Dyson Sphere Program\DSPBluePrints
+SavePath
+Setup=.\update.cmd

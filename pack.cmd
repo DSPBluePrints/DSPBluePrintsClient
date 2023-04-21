@@ -15,5 +15,7 @@ move "%%~nr.bundle" "%~dp0git_bundle"
 cd %~dp0
 
 "%RAR%" a -ma5 -md1024 -m5 -mt32 -htb -rr5p -QO+ DSPBluePrints.rar git_bundle MinGit README.md update.cmd
+"%RAR%" c -zrarnote.txt DSPBluePrints.rar
+"%RAR%" sDefault64.SFX DSPBluePrints.rar
 
 pause
